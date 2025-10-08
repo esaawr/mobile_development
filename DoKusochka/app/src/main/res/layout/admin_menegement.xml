@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <!-- Пространство сверху -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="157dp" />
+
+    <!-- Кнопка "УПРАВЛЕНИЕ МЕНЮ" -->
+    <LinearLayout
+        android:id="@+id/menuManagementsButton"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_background"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="УПРАВЛЕНИЕ МЕНЮ"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Пространство между кнопками -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <!-- Кнопка "ПРОСМОТР ЗАКАЗОВ" -->
+    <LinearLayout
+        android:id="@+id/ordersButton"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_background"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ПРОСМОТР ЗАКАЗОВ"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Пространство между кнопками -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <!-- Кнопка "ОТЧЕТ ПО КЛИЕНТАМ" -->
+    <LinearLayout
+        android:id="@+id/clientsReportButton"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_background"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ОТЧЕТ ПО КЛИЕНТАМ"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Гибкое пространство для выталкивания кнопки выхода вниз -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Кнопка "ВЫЙТИ" -->
+    <LinearLayout
+        android:id="@+id/logoutButton"
+        android:layout_width="155dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/dark_button_background"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ВЫЙТИ"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DoKusochka">
+
+        <!-- Главная активность (Splash Screen) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.DoKusochka">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Выбор роли -->
+        <activity
+            android:name=".RoleSelectionActivity"
+            android:label="Выбор роли"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Меню для клиента -->
+        <activity
+            android:name=".MenuActivity"
+            android:label="Меню"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Авторизация клиента -->
+        <activity
+            android:name=".ClientAuthActivity"
+            android:label="Вход для клиента"
+            android:theme="@style/Theme.DoKusochka" />
+        <activity android:name=".ClientRegActivity"
+            android:label="Регистрация для клиента"
+            android:theme="@style/Theme.DoKusochka" />
+        <!-- Авторизация администратора -->
+        <activity
+            android:name=".AdminAuthActivity"
+            android:label="Вход для администратора"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Панель управления администратора -->
+        <activity
+            android:name=".AdminManagementActivity"
+            android:label="Панель администратора"
+            android:theme="@style/Theme.DoKusochka" />
+
+    </application>
+
+</manifest>

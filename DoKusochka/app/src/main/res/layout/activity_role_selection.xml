@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0"
+    android:padding="25dp">
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="245dp"
+        android:gravity="center"
+        android:text="ДОБРО ПОЖАЛОВАТЬ\nВ «ДОКУСОЧКА»!"
+        android:textColor="#3E3C63"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/jost_bold"
+        android:lineSpacingExtra="8dp" />
+
+    <!-- Иконка пользователя (задняя) -->
+    <ImageView
+        android:id="@+id/userIconBack"
+        android:layout_width="wrap_content"
+        android:layout_height="111dp"
+        android:layout_below="@id/welcomeText"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="-271dp"
+        android:src="@drawable/user_icon_back" />
+
+    <!-- Иконка пользователя (передняя) -->
+    <ImageView
+        android:id="@+id/userIconFront"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-281dp"
+        android:src="@drawable/user_icon_front" />
+
+    <!-- Кнопка "Я КЛИЕНТ" -->
+    <RelativeLayout
+        android:id="@+id/clientButton"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/button_background"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Я КЛИЕНТ"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- Кнопка "Я АДМИНИСТРАТОР" -->
+    <RelativeLayout
+        android:id="@+id/adminButton"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/clientButton"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_background"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Я АДМИНИСТРАТОР"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

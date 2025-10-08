@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0"
+    android:padding="16dp">
+
+    <!-- Кнопка назад -->
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:src="@drawable/back_icon"
+        android:rotation="180"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <!-- Заголовок АВТОРИЗАЦИЯ -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="АВТОРИЗАЦИЯ"
+        android:textColor="#353368"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_below="@id/backButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jost_bold" />
+
+    <!-- Иконка пользователя -->
+    <ImageView
+        android:id="@+id/userIcon"
+        android:layout_width="118dp"
+        android:layout_height="118dp"
+        android:src="@drawable/user_icon_front"
+        android:layout_below="@id/titleText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <!-- Текст КЛИЕНТ -->
+    <TextView
+        android:id="@+id/clientText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="КЛИЕНТ"
+        android:textColor="#353368"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/userIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jost_bold" />
+
+    <!-- Поле для логина -->
+    <RelativeLayout
+        android:id="@+id/loginContainer"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:background="#F3A187"
+        android:layout_below="@id/clientText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/loginHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ВВЕДИТЕ ЛОГИН"
+            android:textColor="#7F353368"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/jost_regular" />
+
+        <EditText
+            android:id="@+id/loginEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textColor="#353368"
+            android:textSize="15sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </RelativeLayout>
+
+
+    <!-- Поле для пароля -->
+    <RelativeLayout
+        android:id="@+id/passwordContainer"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:background="#F3A187"
+        android:layout_below="@id/loginContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp">
+
+        <TextView
+            android:id="@+id/passwordHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ВВЕДИТЕ ПАРОЛЬ"
+            android:textColor="#7F353368"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/jost_regular" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textColor="#353368"
+            android:textSize="15sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:inputType="textPassword" />
+
+    </RelativeLayout>
+
+
+    <!-- Кнопка ВОЙТИ -->
+    <RelativeLayout
+        android:id="@+id/loginButton"
+        android:layout_width="184dp"
+        android:layout_height="63dp"
+        android:background="@drawable/dark_button_background"
+        android:layout_below="@id/passwordContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ВОЙТИ"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/jost_bold" />
+
+    </RelativeLayout>
+
+    <!-- Текст для регистрации -->
+    <TextView
+        android:id="@+id/registerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="НЕТ АККАУНТА? ЗАРЕГИСТРИРОВАТЬСЯ!"
+        android:textColor="#7F353368"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/jost_regular" />
+
+</RelativeLayout>

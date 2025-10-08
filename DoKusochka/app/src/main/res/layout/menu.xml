@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdd9b5"
+    android:padding="16dp">
+
+    <!-- Верхняя панель -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+
+        <!-- Иконка меню -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="68dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/menu_icon" />
+
+        <!-- Иконка корзины -->
+        <ImageView
+            android:id="@+id/cartIcon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/cart_icon" />
+
+    </RelativeLayout>
+
+    <!-- Основная карточка -->
+    <RelativeLayout
+        android:id="@+id/mainCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_orange_light"
+        android:padding="16dp">
+
+        <!-- Вкладки -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!-- КОМБО -->
+            <RelativeLayout
+                android:layout_width="92dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/rounded_orange_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="КОМБО"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="#ffcabd"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- ПИЦЦА -->
+            <RelativeLayout
+                android:layout_width="92dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/rounded_orange_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ПИЦЦА"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- НАПИТКИ -->
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_orange_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="НАПИТКИ"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="#ffcabd"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Список пицц -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Пицца 1: 4 СЫРА -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:id="@+id/pizza1Image"
+                        android:layout_width="141dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/pizza_4_cheese" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_toEndOf="@id/pizza1Image">
+
+                        <TextView
+                            android:id="@+id/pizza1Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4 СЫРА"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/pizza1Title"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="МОЦАРЕЛЛА, СЫР ЧЕДДЕР\nИ ПАРМЕЗАН, \nФИРМЕННЫЙ СОУС АЛЬФРЕДО"
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Цена -->
+                    <RelativeLayout
+                        android:layout_width="101dp"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/pizza1Image"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_medium">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="ОТ 289 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!-- Пицца 2: ПЕППЕРОНИ -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:id="@+id/pizza2Image"
+                        android:layout_width="151dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pizza_pepperoni" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_toEndOf="@id/pizza2Image">
+
+                        <TextView
+                            android:id="@+id/pizza2Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ПЕППЕРОНИ"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/pizza2Title"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="ПИКАНТНАЯ ПЕППЕРОНИ, \nПОРЦИЯ МОЦЦАРЕЛЛЫ,\nФИРМЕННЫЙ ТОМАТНЫЙ\nСОУС"
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Цена -->
+                    <RelativeLayout
+                        android:layout_width="101dp"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/pizza2Image"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_medium">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="ОТ 289 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!-- Пицца 3: МЯСНАЯ -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/pizza3Image"
+                        android:layout_width="164dp"
+                        android:layout_height="158dp"
+                        android:src="@drawable/pizza_meat" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-2dp"
+                        android:layout_toEndOf="@id/pizza3Image">
+
+                        <TextView
+                            android:id="@+id/pizza3Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="МЯСНАЯ"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/pizza3Title"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="ЦИПЛЕНОК, ВЕТЧИНА, ПИКАНТНАЯ\nПЕППЕРОНИ, КОЛБАСКИ ЧОРИЗО,\nФИРМЕННЫЙ ТОМАТНЫЙ СОУС"
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Цена -->
+                    <RelativeLayout
+                        android:layout_width="101dp"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/pizza3Image"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_medium">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="ОТ 289 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

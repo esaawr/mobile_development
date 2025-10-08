@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="276dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="68dp"
+        android:gravity="center"
+        android:text="ДО КУСОЧКА"
+        android:textColor="#3E3C63"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/jost_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/pizza2"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/pizza_image2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="376dp"/>
+
+    <ImageView
+        android:id="@+id/pizza1"
+        android:layout_width="121dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="376dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/pizza_image1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
