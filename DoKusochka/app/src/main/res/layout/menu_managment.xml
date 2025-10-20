@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="УПРАВЛЕНИЕ МЕНЮ"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Поле ввода названия пиццы -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Название пиццы:"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/pizzaNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Введите название пиццы"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Поле ввода цены -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Цена:"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/pizzaPriceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Введите цену"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Поле ввода описания -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Описание:"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/pizzaDescriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Введите описание пиццы"
+            android:gravity="top"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Кнопка выбора изображения -->
+        <LinearLayout
+            android:id="@+id/selectImageButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ВЫБРАТЬ ИЗОБРАЖЕНИЕ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Отображение выбранного изображения -->
+        <ImageView
+            android:id="@+id/selectedImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/image_placeholder"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+        <!-- Кнопка добавления пиццы -->
+        <LinearLayout
+            android:id="@+id/addPizzaButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ДОБАВИТЬ ПИЦЦУ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Кнопка экспорта в Excel -->
+        <LinearLayout
+            android:id="@+id/exportExcelButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ЭКСПОРТ В EXCEL"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Кнопка назад -->
+        <LinearLayout
+            android:id="@+id/backButton"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/dark_button_background"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="НАЗАД"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

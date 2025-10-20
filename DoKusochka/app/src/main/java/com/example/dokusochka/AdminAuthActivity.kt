@@ -7,7 +7,6 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,8 +14,6 @@ class AdminAuthActivity : AppCompatActivity() {
 
     private lateinit var loginEditText: EditText
     private lateinit var passwordEditText: EditText
-    private lateinit var loginHint: TextView
-    private lateinit var passwordHint: TextView
     private lateinit var loginButton: RelativeLayout
     private lateinit var backButton: ImageView
 
@@ -32,64 +29,39 @@ class AdminAuthActivity : AppCompatActivity() {
     private fun initViews() {
         loginEditText = findViewById(R.id.loginEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
-        loginHint = findViewById(R.id.loginHint)
-        passwordHint = findViewById(R.id.passwordHint)
         loginButton = findViewById(R.id.loginButton)
         backButton = findViewById(R.id.backButton)
     }
 
     private fun setupClickListeners() {
-
         backButton.setOnClickListener {
             val intent = Intent(this, RoleSelectionActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-
         loginButton.setOnClickListener {
             attemptLogin()
-        }
-
-
-        findViewById<RelativeLayout>(R.id.loginContainer).setOnClickListener {
-            loginEditText.requestFocus()
-        }
-
-
-        findViewById<RelativeLayout>(R.id.passwordContainer).setOnClickListener {
-            passwordEditText.requestFocus()
         }
     }
 
     private fun setupTextWatchers() {
-
-        loginEditText.addTextChangedListener(object : TextWatcher {
+        // Упрощенный TextWatcher без работы с hint-ами
+        val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
-
-                loginHint.visibility = if (s.isNullOrEmpty()) TextView.VISIBLE else TextView.INVISIBLE
                 updateLoginButtonState()
             }
-        })
+        }
 
-
-        passwordEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-
-                passwordHint.visibility = if (s.isNullOrEmpty()) TextView.VISIBLE else TextView.INVISIBLE
-                updateLoginButtonState()
-            }
-        })
+        loginEditText.addTextChangedListener(textWatcher)
+        passwordEditText.addTextChangedListener(textWatcher)
     }
 
     private fun updateLoginButtonState() {
         val login = loginEditText.text.toString().trim()
         val password = passwordEditText.text.toString().trim()
-
 
         loginButton.isEnabled = login.isNotEmpty() && password.isNotEmpty()
         loginButton.alpha = if (loginButton.isEnabled) 1.0f else 0.6f
@@ -104,12 +76,10 @@ class AdminAuthActivity : AppCompatActivity() {
             return
         }
 
-
         val success = authenticateAdmin(login, password)
 
         if (success) {
             Toast.makeText(this, "Вход выполнен успешно!", Toast.LENGTH_SHORT).show()
-
             val intent = Intent(this, AdminManagementActivity::class.java)
             startActivity(intent)
             finish()
@@ -119,8 +89,7 @@ class AdminAuthActivity : AppCompatActivity() {
     }
 
     private fun authenticateAdmin(login: String, password: String): Boolean {
-        //будет логика проверки администратора в бд
-
+        // будет логика проверки администратора в бд
         return login == "admin" && password == "admin123"
     }
 }

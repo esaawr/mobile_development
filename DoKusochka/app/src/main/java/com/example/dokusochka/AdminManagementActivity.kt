@@ -17,21 +17,19 @@ class AdminManagementActivity : AppCompatActivity() {
         val logoutButton = findViewById<LinearLayout>(R.id.logoutButton)
 
         menuManagementButton.setOnClickListener {
-            Toast.makeText(this, "Управление меню", Toast.LENGTH_SHORT).show()
-            // будет переход к управлению меню
-
+            // Переход к управлению меню
+            val intent = Intent(this, MenuManagementActivity::class.java)
+            startActivity(intent)
         }
 
         ordersButton.setOnClickListener {
             Toast.makeText(this, "Просмотр заказов", Toast.LENGTH_SHORT).show()
-            //будет переход к просмотру заказов
-
+            // будет переход к просмотру заказов
         }
 
         clientsReportButton.setOnClickListener {
             Toast.makeText(this, "Отчет по клиентам", Toast.LENGTH_SHORT).show()
-            //будет переход к отчетам
-
+            // будет переход к отчетам
         }
 
         logoutButton.setOnClickListener {

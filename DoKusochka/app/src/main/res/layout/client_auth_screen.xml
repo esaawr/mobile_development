@@ -53,78 +53,66 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/jost_bold" />
 
-    <!-- Поле для логина -->
-    <RelativeLayout
-        android:id="@+id/loginContainer"
-        android:layout_width="313dp"
-        android:layout_height="45dp"
-        android:background="#F3A187"
+    <!-- Поле для логина в новом стиле -->
+    <TextView
+        android:id="@+id/loginLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Логин:"
+        android:textColor="#353368"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:layout_below="@id/clientText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/jost_bold" />
 
-        <TextView
-            android:id="@+id/loginHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ВВЕДИТЕ ЛОГИН"
-            android:textColor="#7F353368"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/jost_regular" />
-
-        <EditText
-            android:id="@+id/loginEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="#353368"
-            android:textSize="15sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:maxLines="1"
-            android:singleLine="true" />
-
-    </RelativeLayout>
-
-
-    <!-- Поле для пароля -->
-    <RelativeLayout
-        android:id="@+id/passwordContainer"
+    <EditText
+        android:id="@+id/loginEditText"
         android:layout_width="313dp"
-        android:layout_height="45dp"
-        android:background="#F3A187"
-        android:layout_below="@id/loginContainer"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:padding="10dp"
+        android:textColor="#353368"
+        android:textSize="16sp"
+        android:hint="Введите логин"
+        android:layout_below="@id/loginLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:fontFamily="@font/jost_regular" />
 
-        <TextView
-            android:id="@+id/passwordHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ВВЕДИТЕ ПАРОЛЬ"
-            android:textColor="#7F353368"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/jost_regular" />
+    <!-- Поле для пароля в новом стиле -->
+    <TextView
+        android:id="@+id/passwordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пароль:"
+        android:textColor="#353368"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/loginEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/jost_bold" />
 
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:textColor="#353368"
-            android:textSize="15sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:inputType="textPassword" />
-
-    </RelativeLayout>
-
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_background"
+        android:padding="10dp"
+        android:textColor="#353368"
+        android:textSize="16sp"
+        android:hint="Введите пароль"
+        android:layout_below="@id/passwordLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:fontFamily="@font/jost_regular" />
 
     <!-- Кнопка ВОЙТИ -->
     <RelativeLayout
@@ -132,7 +120,7 @@
         android:layout_width="184dp"
         android:layout_height="63dp"
         android:background="@drawable/dark_button_background"
-        android:layout_below="@id/passwordContainer"
+        android:layout_below="@id/passwordEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:clickable="true"
