@@ -60,6 +60,8 @@
             android:name=".MenuManagementActivity"
             android:exported="false" />
 
+        <activity android:name=".CartActivity" />
+
     </application>
 
 </manifest>

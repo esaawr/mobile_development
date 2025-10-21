@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/rounded_white"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/pizzaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4 СЫРА"
+        android:textColor="#363368"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pizzaPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pizzaTitle"
+        android:layout_marginTop="8dp"
+        android:text="289 Р"
+        android:textColor="#363368"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/quantityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="Количество: 1"
+        android:textColor="#363368"
+        android:textSize="14sp" />
+
+</RelativeLayout>

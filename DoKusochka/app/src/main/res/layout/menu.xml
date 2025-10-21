@@ -59,7 +59,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="КОМБО"
-                    android:fontFamily="@font/jost_bold"
                     android:textColor="#ffcabd"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -78,7 +77,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="ПИЦЦА"
-                    android:fontFamily="@font/jost_bold"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -96,7 +94,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="НАПИТКИ"
-                    android:fontFamily="@font/jost_bold"
                     android:textColor="#ffcabd"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -155,23 +152,73 @@
 
                     </RelativeLayout>
 
-                    <!-- Цена -->
+                    <!-- Кнопка цены или управление количеством -->
                     <RelativeLayout
-                        android:layout_width="101dp"
+                        android:id="@+id/pizza1PriceContainer"
+                        android:layout_width="wrap_content"
                         android:layout_height="33dp"
                         android:layout_below="@id/pizza1Image"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/rounded_orange_medium">
 
+                        <!-- Кнопка цены (изначально видна) -->
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
+                            android:id="@+id/pizza1PriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
                             android:text="ОТ 289 Р"
                             android:textColor="#FFFFFF"
                             android:textSize="15sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/pizza1QuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/pizza1MinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/pizza1QuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/pizza1PlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
 
                     </RelativeLayout>
 
@@ -216,23 +263,73 @@
 
                     </RelativeLayout>
 
-                    <!-- Цена -->
+                    <!-- Кнопка цены или управление количеством -->
                     <RelativeLayout
-                        android:layout_width="101dp"
+                        android:id="@+id/pizza2PriceContainer"
+                        android:layout_width="wrap_content"
                         android:layout_height="33dp"
                         android:layout_below="@id/pizza2Image"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/rounded_orange_medium">
 
+                        <!-- Кнопка цены (изначально видна) -->
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
+                            android:id="@+id/pizza2PriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
                             android:text="ОТ 289 Р"
                             android:textColor="#FFFFFF"
                             android:textSize="15sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/pizza2QuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/pizza2MinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/pizza2QuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/pizza2PlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
 
                     </RelativeLayout>
 
@@ -276,23 +373,73 @@
 
                     </RelativeLayout>
 
-                    <!-- Цена -->
+                    <!-- Кнопка цены или управление количеством -->
                     <RelativeLayout
-                        android:layout_width="101dp"
+                        android:id="@+id/pizza3PriceContainer"
+                        android:layout_width="wrap_content"
                         android:layout_height="33dp"
                         android:layout_below="@id/pizza3Image"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="16dp"
                         android:background="@drawable/rounded_orange_medium">
 
+                        <!-- Кнопка цены (изначально видна) -->
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
+                            android:id="@+id/pizza3PriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
                             android:text="ОТ 289 Р"
                             android:textColor="#FFFFFF"
                             android:textSize="15sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/pizza3QuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/pizza3MinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/pizza3QuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/pizza3PlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
 
                     </RelativeLayout>
 

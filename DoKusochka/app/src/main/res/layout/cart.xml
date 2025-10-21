@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdd9b5"
+    android:padding="16dp">
+
+    <!-- Верхняя панель -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+
+        <!-- Кнопка назад -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:src="@drawable/back_icon"
+            android:rotation="180"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"/>
+
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="КОРЗИНА"
+            android:textColor="#363368"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- Основная карточка -->
+    <RelativeLayout
+        android:id="@+id/mainCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_orange_light"
+        android:padding="16dp">
+
+        <!-- Сообщение о пустой корзине -->
+        <TextView
+            android:id="@+id/emptyCartMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Корзина пуста\nДобавьте товары из меню"
+            android:textSize="18sp"
+            android:textColor="#888888"
+            android:gravity="center"
+            android:padding="100dp"
+            android:visibility="visible" />
+
+        <!-- Список товаров в корзине (изначально пустой) -->
+        <ScrollView
+            android:id="@+id/cartScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/cartItemsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Товары будут добавляться динамически -->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- Панель итого и кнопка заказа (изначально скрыта) -->
+        <RelativeLayout
+            android:id="@+id/totalPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/rounded_orange_medium"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/totalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="ИТОГО: 0 Р"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/orderButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/rounded_blue"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="ЗАКАЗАТЬ"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
