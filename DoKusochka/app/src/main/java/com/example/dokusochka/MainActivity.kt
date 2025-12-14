@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, RoleSelectionActivity::class.java)
+
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

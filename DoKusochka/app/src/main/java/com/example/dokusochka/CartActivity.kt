@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.core.content.ContextCompat
-import android.view.LayoutInflater
 
 class CartActivity : AppCompatActivity() {
 
@@ -20,31 +19,21 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cart)
 
-        // Инициализация UI элементов
         initViews()
 
-        // Получаем данные из Intent
-        val cartItemsCount = intent.getIntExtra("cart_items_count", 0)
-        val totalPrice = intent.getDoubleExtra("cart_total_price", 0.0)
-        val cartItemsString = intent.getStringExtra("cart_items") ?: ""
-
-        // Кнопка назад
+        // кнопка назад
         val backButton = findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
-            finish() // Возврат к предыдущей активности
+            finish()
         }
 
-        // Кнопка заказа
+        // кнопка заказа
         orderButton.setOnClickListener {
-            placeOrder(totalPrice)
+            placeOrder()
         }
 
-        // Обновление отображения корзины
-        if (cartItemsCount > 0) {
-            showCartItems(cartItemsString, totalPrice)
-        } else {
-            showEmptyCart()
-        }
+        // обновление отображения корзины
+        updateCartDisplay()
     }
 
     private fun initViews() {
@@ -56,16 +45,24 @@ class CartActivity : AppCompatActivity() {
         orderButton = findViewById(R.id.orderButton)
     }
 
-    private fun showCartItems(cartItemsString: String, totalPrice: Double) {
+    private fun updateCartDisplay() {
+        val cartItems = CartManager.getItems()
+        val totalPrice = CartManager.getTotalPrice()
+
+        if (cartItems.isEmpty()) {
+            showEmptyCart()
+        } else {
+            showCartItems(cartItems, totalPrice)
+        }
+    }
+
+    private fun showCartItems(cartItems: List<CartItem>, totalPrice: Double) {
         emptyCartMessage.visibility = TextView.GONE
         cartScrollView.visibility = ScrollView.VISIBLE
         totalPanel.visibility = RelativeLayout.VISIBLE
 
-        // Обновляем общую сумму
         totalText.text = "ИТОГО: ${totalPrice.toInt()} Р"
-
-        // Парсим строку с товарами и отображаем их
-        displayCartItems(cartItemsString)
+        displayCartItems(cartItems)
     }
 
     private fun showEmptyCart() {
@@ -74,29 +71,18 @@ class CartActivity : AppCompatActivity() {
         totalPanel.visibility = RelativeLayout.GONE
     }
 
-    private fun displayCartItems(cartItemsString: String) {
+    private fun displayCartItems(cartItems: List<CartItem>) {
         cartItemsContainer.removeAllViews()
 
-        if (cartItemsString.isNotEmpty()) {
-            val items = cartItemsString.split(";")
-            items.forEach { itemString ->
-                val parts = itemString.split(",")
-                if (parts.size == 4) {
-                    val id = parts[0].toInt()
-                    val name = parts[1]
-                    val price = parts[2].toDouble()
-                    val quantity = parts[3].toInt()
-
-                    val itemView = createCartItemView(id, name, price, quantity)
-                    cartItemsContainer.addView(itemView)
-                }
-            }
+        cartItems.forEach { item ->
+            val itemView = createCartItemView(item)
+            cartItemsContainer.addView(itemView)
         }
     }
 
-    private fun createCartItemView(id: Int, name: String, price: Double, quantity: Int): TextView {
+    private fun createCartItemView(item: CartItem): TextView {
         return TextView(this).apply {
-            text = "$name - ${price.toInt()} Р (Количество: $quantity)"
+            text = "${item.name} - ${item.price.toInt()} Р (Количество: ${item.quantity})"
             setTextColor(ContextCompat.getColor(this@CartActivity, android.R.color.black))
             textSize = 16f
             setPadding(dipToPx(16), dipToPx(16), dipToPx(16), dipToPx(16))
@@ -114,8 +100,31 @@ class CartActivity : AppCompatActivity() {
         return (dip * resources.displayMetrics.density).toInt()
     }
 
-    private fun placeOrder(totalPrice: Double) {
-        Toast.makeText(this, "Заказ оформлен на сумму ${totalPrice.toInt()} Р!", Toast.LENGTH_LONG).show()
-        finish()
+    private fun placeOrder() {
+        val totalPrice = CartManager.getTotalPrice()
+        val items = CartManager.getItems()
+        
+        // формирую список товаров
+        val itemsList = items.joinToString("\n") { 
+            "${it.name} x${it.quantity} - ${(it.price * it.quantity).toInt()} Р" 
+        }
+        
+        // создание заказа в базе данных
+        val databaseHelper = DatabaseHelper(this)
+        val orderId = databaseHelper.createOrder(
+            customerName = "Гость",
+            items = itemsList,
+            totalPrice = totalPrice
+        )
+        
+        if (orderId > 0) {
+            Toast.makeText(this, "Заказ #$orderId оформлен на сумму ${totalPrice.toInt()} Р!", Toast.LENGTH_LONG).show()
+            
+            // очищаю корзину после оформления заказа
+            CartManager.clearCart()
+            finish()
+        } else {
+            Toast.makeText(this, "Ошибка при создании заказа", Toast.LENGTH_SHORT).show()
+        }
     }
 }

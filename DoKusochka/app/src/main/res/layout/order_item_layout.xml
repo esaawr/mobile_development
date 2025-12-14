@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_orange_lightt"
+    android:layout_margin="8dp"
+    android:padding="16dp">
+
+    <!-- Заголовок заказа -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/orderIdText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Заказ #000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#363368" />
+
+        <TextView
+            android:id="@+id/orderStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Новый"
+            android:textSize="12sp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/rounded_orange_mediumm"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <!-- Информация о клиенте -->
+    <TextView
+        android:id="@+id/customerInfoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Клиент: Гость"
+        android:textSize="14sp"
+        android:textColor="#363368"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/orderDateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Дата: 2024-01-01"
+        android:textSize="12sp"
+        android:textColor="#666666"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Список товаров -->
+    <TextView
+        android:id="@+id/itemsTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Состав заказа:"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#363368"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/itemsListText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Пицца Маргарита x1"
+        android:textSize="13sp"
+        android:textColor="#363368"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Итоговая сумма -->
+    <TextView
+        android:id="@+id/totalPriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Итого: 500 Р"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#363368"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Кнопки управления статусом -->
+    <LinearLayout
+        android:id="@+id/statusButtonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <!-- В обработке -->
+        <LinearLayout
+            android:id="@+id/processingButton"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/rounded_bluee"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="В обработке"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- Готовится -->
+        <LinearLayout
+            android:id="@+id/preparingButton"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/rounded_green"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Готовится"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- Готов -->
+        <LinearLayout
+            android:id="@+id/readyButton"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/rounded_green_dark"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Готов"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- В пути -->
+        <LinearLayout
+            android:id="@+id/onTheWayButton"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/rounded_orange_dark"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="В пути"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <!-- Отменить -->
+        <LinearLayout
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/rounded_red"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Отменить"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

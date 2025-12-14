@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdd9b5"
+    android:padding="16dp">
+
+    <!-- Верхняя панель -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+
+        <!-- Иконка профиля/меню -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="68dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/menu_icon" />
+
+        <!-- Иконка корзины -->
+        <ImageView
+            android:id="@+id/cartIcon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/cart_icon" />
+        <TextView
+            android:id="@+id/cartBadge"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignTop="@id/cartIcon"
+            android:layout_alignEnd="@id/cartIcon"
+            android:layout_marginTop="-8dp"
+            android:layout_marginEnd="-8dp"
+            android:background="@drawable/rounded_orange_mediumm"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <!-- Основная карточка -->
+    <RelativeLayout
+        android:id="@+id/mainCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_orange_lightt"
+        android:padding="16dp">
+
+        <!-- Вкладки -->
+        <LinearLayout
+            android:id="@+id/tabsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!-- СНЕКИ -->
+            <RelativeLayout
+                android:id="@+id/comboTab"
+                android:layout_width="92dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ЗАКУСКИ"
+                    android:textColor="#ffcabd"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- НАПИТКИ (активная вкладка) -->
+            <RelativeLayout
+                android:id="@+id/drinksTab"
+                android:layout_width="92dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="НАПИТКИ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- ПИЦЦА -->
+            <RelativeLayout
+                android:id="@+id/pizzaTab"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ПИЦЦА"
+                    android:textColor="#ffcabd"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Список напитков -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp">
+
+            <LinearLayout
+                android:id="@+id/drinksContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Спрайт -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:id="@+id/spriteImage"
+                        android:layout_width="141dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/sprite" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_toEndOf="@id/spriteImage">
+
+                        <TextView
+                            android:id="@+id/spriteTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sprite"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/spriteDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/spriteTitle"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Лимон Лайм - это цитрусовый прозрачный лимонад с освежающей волной из миллиона пузырьков."
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Кнопка цены или управление количеством -->
+                    <RelativeLayout
+                        android:id="@+id/spritePriceContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/spriteImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_mediumm">
+
+                        <!-- Кнопка цены (изначально видна) -->
+                        <TextView
+                            android:id="@+id/spritePriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
+                            android:text="100 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/spriteQuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/spriteMinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/spriteQuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/spritePlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!-- Кока Кола -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:id="@+id/colaImage"
+                        android:layout_width="141dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/cola" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_toEndOf="@id/colaImage">
+
+                        <TextView
+                            android:id="@+id/colaTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coca Cola"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/colaDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/colaTitle"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Cola - современная и невероятно вкусная кола от бренда премиальных газированных напитков с более чем полувековой историей."
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Кнопка цены или управление количеством -->
+                    <RelativeLayout
+                        android:id="@+id/colaPriceContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/colaImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_mediumm">
+
+                        <!-- Кнопка цены (изначально видна) -->
+                        <TextView
+                            android:id="@+id/colaPriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
+                            android:text="150 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/colaQuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/colaMinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/colaQuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/colaPlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!-- Фанта -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/fantaImage"
+                        android:layout_width="164dp"
+                        android:layout_height="158dp"
+                        android:src="@drawable/fanta" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-2dp"
+                        android:layout_toEndOf="@id/fantaImage">
+
+                        <TextView
+                            android:id="@+id/fantaTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fanta"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/fantaDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/fantaTitle"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Fanta - это газировка яркого оранжевого цвета со вкусом спелого сладкого апельсина с освежающей волной из миллиона пузырьков."
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Кнопка цены или управление количеством -->
+                    <RelativeLayout
+                        android:id="@+id/fantaPriceContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/fantaImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_mediumm">
+
+                        <!-- Кнопка цены (изначально видна) -->
+                        <TextView
+                            android:id="@+id/fantaPriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
+                            android:text="100 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/fantaQuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/fantaMinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/fantaQuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/fantaPlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

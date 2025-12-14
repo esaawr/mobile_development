@@ -16,10 +16,15 @@ class ClientAuthActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: RelativeLayout
     private lateinit var registerText: TextView
+    private lateinit var sessionManager: SessionManager
+    private lateinit var databaseHelper: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.client_auth_screen)
+
+        sessionManager = SessionManager(this)
+        databaseHelper = DatabaseHelper(this)
 
         initViews()
         setupClickListeners()
@@ -34,17 +39,17 @@ class ClientAuthActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        // Кнопка назад
+        // кнопка назад - возвращаемся в меню
         backButton.setOnClickListener {
             finish()
         }
 
-        // Кнопка входа
+        // кнопка входа
         loginButton.setOnClickListener {
             attemptLogin()
         }
 
-        // Текст регистрации
+        // текст регистрации
         registerText.setOnClickListener {
             val intent = Intent(this, ClientRegActivity::class.java)
             startActivity(intent)
@@ -65,12 +70,67 @@ class ClientAuthActivity : AppCompatActivity() {
             return
         }
 
-        // Здесь будет проверка с базой данных
-        showToast("Вход выполнен!")
-        // Переход к главному меню клиента
-        val intent = Intent(this, MenuActivity::class.java)
-        startActivity(intent)
-        finish()
+        // СНАЧАЛА ПРОВЕРЯЕМ АДМИНИСТРАТОРА
+        val isAdmin = databaseHelper.authenticateAdmin(login, password)
+
+        if (isAdmin) {
+            sessionManager.saveUserSession(
+                userId = 0,
+                userName = "Администратор",
+                userPhone = "",
+                userLogin = login,
+                userPassword = password,
+                userCity = "",
+                userAddress = "",
+                isAdmin = true
+            )
+
+            showToast("Вход администратора выполнен!")
+            val intent = Intent(this, AdminManagementActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
+        // ЕСЛИ НЕ АДМИН, ПРОВЕРЯЕМ ПОЛЬЗОВАТЕЛЯ
+        val isUser = databaseHelper.authenticateUser(login, password)
+
+        if (isUser) {
+            // Получаем данные пользователя
+            val userDetails = databaseHelper.getUserDetails(login, password)
+
+            if (userDetails != null) {
+                sessionManager.saveUserSession(
+                    userId = userDetails["id"]?.toInt() ?: 0,
+                    userName = userDetails["name"] ?: "",
+                    userPhone = userDetails["phone"] ?: "",
+                    userLogin = login,
+                    userPassword = password,
+                    userCity = "",
+                    userAddress = userDetails["address"] ?: "",
+                    isAdmin = false
+                )
+
+                showToast("Вход пользователя выполнен!")
+                finish() // возвращаемся в меню
+            } else {
+                // Если не удалось получить детали, сохраняем только логин
+                sessionManager.saveUserSession(
+                    userId = 0,
+                    userName = login,
+                    userPhone = "",
+                    userLogin = login,
+                    userPassword = password,
+                    userCity = "",
+                    userAddress = "",
+                    isAdmin = false
+                )
+                showToast("Вход выполнен!")
+                finish()
+            }
+        } else {
+            showToast("Неверный логин или пароль")
+        }
     }
 
     private fun showToast(message: String) {

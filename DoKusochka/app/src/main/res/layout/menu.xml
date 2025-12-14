@@ -27,8 +27,23 @@
             android:layout_height="55dp"
             android:layout_alignParentEnd="true"
             android:src="@drawable/cart_icon" />
+        <TextView
+            android:id="@+id/cartBadge"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignTop="@id/cartIcon"
+            android:layout_alignEnd="@id/cartIcon"
+            android:layout_marginTop="-8dp"
+            android:layout_marginEnd="-8dp"
+            android:background="@drawable/rounded_orange_mediumm"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:visibility="gone" />
 
     </RelativeLayout>
+
 
     <!-- Основная карточка -->
     <RelativeLayout
@@ -36,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="80dp"
-        android:background="@drawable/rounded_orange_light"
+        android:background="@drawable/rounded_orange_lightt"
         android:padding="16dp">
 
         <!-- Вкладки -->
@@ -47,18 +62,21 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <!-- КОМБО -->
+            <!-- СНЕКИ -->
             <RelativeLayout
+                android:id="@+id/snacksTab"
                 android:layout_width="92dp"
                 android:layout_height="39dp"
                 android:layout_marginEnd="23dp"
-                android:background="@drawable/rounded_orange_medium">
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="КОМБО"
+                    android:text="ЗАКУСКИ"
                     android:textColor="#ffcabd"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -70,7 +88,7 @@
                 android:layout_width="92dp"
                 android:layout_height="39dp"
                 android:layout_marginEnd="23dp"
-                android:background="@drawable/rounded_orange_medium">
+                android:background="@drawable/rounded_orange_mediumm">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,9 +103,12 @@
 
             <!-- НАПИТКИ -->
             <RelativeLayout
+                android:id="@+id/drinksTab"
                 android:layout_width="100dp"
                 android:layout_height="36dp"
-                android:background="@drawable/rounded_orange_medium">
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,348 +123,20 @@
 
         </LinearLayout>
 
-        <!-- Список пицц -->
         <ScrollView
+            android:id="@+id/pizzasScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="80dp">
 
             <LinearLayout
+                android:id="@+id/pizzasContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="30dp">
 
-                <!-- Пицца 1: 4 СЫРА -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp">
-
-                    <ImageView
-                        android:id="@+id/pizza1Image"
-                        android:layout_width="141dp"
-                        android:layout_height="143dp"
-                        android:src="@drawable/pizza_4_cheese" />
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_toEndOf="@id/pizza1Image">
-
-                        <TextView
-                            android:id="@+id/pizza1Title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="4 СЫРА"
-                            android:textColor="#363368"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/pizza1Title"
-                            android:layout_marginTop="4dp"
-                            android:lineSpacingExtra="4dp"
-                            android:text="МОЦАРЕЛЛА, СЫР ЧЕДДЕР\nИ ПАРМЕЗАН, \nФИРМЕННЫЙ СОУС АЛЬФРЕДО"
-                            android:textColor="#363368"
-                            android:textSize="13sp" />
-
-                    </RelativeLayout>
-
-                    <!-- Кнопка цены или управление количеством -->
-                    <RelativeLayout
-                        android:id="@+id/pizza1PriceContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_below="@id/pizza1Image"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/rounded_orange_medium">
-
-                        <!-- Кнопка цены (изначально видна) -->
-                        <TextView
-                            android:id="@+id/pizza1PriceButton"
-                            android:layout_width="101dp"
-                            android:layout_height="33dp"
-                            android:gravity="center"
-                            android:text="ОТ 289 Р"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:visibility="visible" />
-
-                        <!-- Управление количеством (изначально скрыто) -->
-                        <LinearLayout
-                            android:id="@+id/pizza1QuantityControls"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:visibility="gone">
-
-                            <!-- Кнопка минус -->
-                            <TextView
-                                android:id="@+id/pizza1MinusButton"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="-"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-                            <!-- Количество -->
-                            <TextView
-                                android:id="@+id/pizza1QuantityText"
-                                android:layout_width="40dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="1"
-                                android:textColor="#FFFFFF"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <!-- Кнопка плюс -->
-                            <TextView
-                                android:id="@+id/pizza1PlusButton"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="+"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-                <!-- Пицца 2: ПЕППЕРОНИ -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp">
-
-                    <ImageView
-                        android:id="@+id/pizza2Image"
-                        android:layout_width="151dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/pizza_pepperoni" />
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_toEndOf="@id/pizza2Image">
-
-                        <TextView
-                            android:id="@+id/pizza2Title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ПЕППЕРОНИ"
-                            android:textColor="#363368"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/pizza2Title"
-                            android:layout_marginTop="4dp"
-                            android:lineSpacingExtra="4dp"
-                            android:text="ПИКАНТНАЯ ПЕППЕРОНИ, \nПОРЦИЯ МОЦЦАРЕЛЛЫ,\nФИРМЕННЫЙ ТОМАТНЫЙ\nСОУС"
-                            android:textColor="#363368"
-                            android:textSize="13sp" />
-
-                    </RelativeLayout>
-
-                    <!-- Кнопка цены или управление количеством -->
-                    <RelativeLayout
-                        android:id="@+id/pizza2PriceContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_below="@id/pizza2Image"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/rounded_orange_medium">
-
-                        <!-- Кнопка цены (изначально видна) -->
-                        <TextView
-                            android:id="@+id/pizza2PriceButton"
-                            android:layout_width="101dp"
-                            android:layout_height="33dp"
-                            android:gravity="center"
-                            android:text="ОТ 289 Р"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:visibility="visible" />
-
-                        <!-- Управление количеством (изначально скрыто) -->
-                        <LinearLayout
-                            android:id="@+id/pizza2QuantityControls"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:visibility="gone">
-
-                            <!-- Кнопка минус -->
-                            <TextView
-                                android:id="@+id/pizza2MinusButton"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="-"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-                            <!-- Количество -->
-                            <TextView
-                                android:id="@+id/pizza2QuantityText"
-                                android:layout_width="40dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="1"
-                                android:textColor="#FFFFFF"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <!-- Кнопка плюс -->
-                            <TextView
-                                android:id="@+id/pizza2PlusButton"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="+"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-                <!-- Пицца 3: МЯСНАЯ -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/pizza3Image"
-                        android:layout_width="164dp"
-                        android:layout_height="158dp"
-                        android:src="@drawable/pizza_meat" />
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="-2dp"
-                        android:layout_toEndOf="@id/pizza3Image">
-
-                        <TextView
-                            android:id="@+id/pizza3Title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="МЯСНАЯ"
-                            android:textColor="#363368"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/pizza3Title"
-                            android:layout_marginTop="4dp"
-                            android:lineSpacingExtra="4dp"
-                            android:text="ЦИПЛЕНОК, ВЕТЧИНА, ПИКАНТНАЯ\nПЕППЕРОНИ, КОЛБАСКИ ЧОРИЗО,\nФИРМЕННЫЙ ТОМАТНЫЙ СОУС"
-                            android:textColor="#363368"
-                            android:textSize="13sp" />
-
-                    </RelativeLayout>
-
-                    <!-- Кнопка цены или управление количеством -->
-                    <RelativeLayout
-                        android:id="@+id/pizza3PriceContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="33dp"
-                        android:layout_below="@id/pizza3Image"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/rounded_orange_medium">
-
-                        <!-- Кнопка цены (изначально видна) -->
-                        <TextView
-                            android:id="@+id/pizza3PriceButton"
-                            android:layout_width="101dp"
-                            android:layout_height="33dp"
-                            android:gravity="center"
-                            android:text="ОТ 289 Р"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:visibility="visible" />
-
-                        <!-- Управление количеством (изначально скрыто) -->
-                        <LinearLayout
-                            android:id="@+id/pizza3QuantityControls"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:visibility="gone">
-
-                            <!-- Кнопка минус -->
-                            <TextView
-                                android:id="@+id/pizza3MinusButton"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="-"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-                            <!-- Количество -->
-                            <TextView
-                                android:id="@+id/pizza3QuantityText"
-                                android:layout_width="40dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="1"
-                                android:textColor="#FFFFFF"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                            <!-- Кнопка плюс -->
-                            <TextView
-                                android:id="@+id/pizza3PlusButton"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:gravity="center"
-                                android:text="+"
-                                android:textColor="#FFFFFF"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
+                <!-- Пиццы будут добавляться динамически здесь -->
 
             </LinearLayout>
 

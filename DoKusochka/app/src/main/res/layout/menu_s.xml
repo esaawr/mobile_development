@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fdd9b5"
+    android:padding="16dp">
+
+    <!-- Верхняя панель -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+
+        <!-- Иконка профиля/меню -->
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="68dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/menu_icon" />
+
+        <!-- Иконка корзины -->
+        <ImageView
+            android:id="@+id/cartIcon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/cart_icon" />
+        <TextView
+            android:id="@+id/cartBadge"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignTop="@id/cartIcon"
+            android:layout_alignEnd="@id/cartIcon"
+            android:layout_marginTop="-8dp"
+            android:layout_marginEnd="-8dp"
+            android:background="@drawable/rounded_orange_mediumm"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <!-- Основная карточка -->
+    <RelativeLayout
+        android:id="@+id/mainCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_orange_lightt"
+        android:padding="16dp">
+
+        <!-- Вкладки -->
+        <LinearLayout
+            android:id="@+id/tabsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!-- НАПИТКИ -->
+            <RelativeLayout
+                android:id="@+id/drinksTab"
+                android:layout_width="92dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="НАПИТКИ"
+                    android:textColor="#ffcabd"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- ЗАКУСКИ (активная вкладка) -->
+            <RelativeLayout
+                android:id="@+id/snacksTab"
+                android:layout_width="92dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="23dp"
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ЗАКУСКИ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- ПИЦЦА -->
+            <RelativeLayout
+                android:id="@+id/pizzaTab"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:background="@drawable/rounded_orange_mediumm"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ПИЦЦА"
+                    android:textColor="#ffcabd"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Список закусок -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp">
+
+            <LinearLayout
+                android:id="@+id/snacksContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Картошка фри -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:id="@+id/friesImage"
+                        android:layout_width="141dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/free" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_toEndOf="@id/friesImage">
+
+                        <TextView
+                            android:id="@+id/friesTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Картофель фри"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/friesDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/friesTitle"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Хрустящая золотистая картошка, приготовленная с использованием специального рецепта. Идеальная закуска к основному блюду."
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Кнопка цены или управление количеством -->
+                    <RelativeLayout
+                        android:id="@+id/friesPriceContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/friesImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_mediumm">
+
+                        <!-- Кнопка цены (изначально видна) -->
+                        <TextView
+                            android:id="@+id/friesPriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
+                            android:text="129 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/friesQuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/friesMinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/friesQuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/friesPlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!-- Наггетсы -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <ImageView
+                        android:id="@+id/nuggetsImage"
+                        android:layout_width="141dp"
+                        android:layout_height="143dp"
+                        android:src="@drawable/nuggets" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_toEndOf="@id/nuggetsImage">
+
+                        <TextView
+                            android:id="@+id/nuggetsTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Куриные наггетсы"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/nuggetsDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/nuggetsTitle"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Сочные куриные наггетсы в хрустящей панировке. Подаются с соусом на выбор: сырный, барбекю или чесночный."
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Кнопка цены или управление количеством -->
+                    <RelativeLayout
+                        android:id="@+id/nuggetsPriceContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/nuggetsImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_mediumm">
+
+                        <!-- Кнопка цены (изначально видна) -->
+                        <TextView
+                            android:id="@+id/nuggetsPriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
+                            android:text="179 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/nuggetsQuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/nuggetsMinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/nuggetsQuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/nuggetsPlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <!-- Салат Цезарь -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/saladImage"
+                        android:layout_width="164dp"
+                        android:layout_height="158dp"
+                        android:src="@drawable/salad" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-2dp"
+                        android:layout_toEndOf="@id/saladImage">
+
+                        <TextView
+                            android:id="@+id/saladTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Салат Цезарь"
+                            android:textColor="#363368"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/saladDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/saladTitle"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Классический салат с курицей, листьями салата, сухариками, пармезаном и фирменным соусом Цезарь. Легкий и питательный вариант."
+                            android:textColor="#363368"
+                            android:textSize="13sp" />
+
+                    </RelativeLayout>
+
+                    <!-- Кнопка цены или управление количеством -->
+                    <RelativeLayout
+                        android:id="@+id/saladPriceContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:layout_below="@id/saladImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_orange_mediumm">
+
+                        <!-- Кнопка цены (изначально видна) -->
+                        <TextView
+                            android:id="@+id/saladPriceButton"
+                            android:layout_width="101dp"
+                            android:layout_height="33dp"
+                            android:gravity="center"
+                            android:text="199 Р"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <!-- Управление количеством (изначально скрыто) -->
+                        <LinearLayout
+                            android:id="@+id/saladQuantityControls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+
+                            <!-- Кнопка минус -->
+                            <TextView
+                                android:id="@+id/saladMinusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                            <!-- Количество -->
+                            <TextView
+                                android:id="@+id/saladQuantityText"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <!-- Кнопка плюс -->
+                            <TextView
+                                android:id="@+id/saladPlusButton"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

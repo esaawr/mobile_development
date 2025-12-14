@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="УПРАВЛЕНИЕ МЕНЮ"
+            android:text="ДОБАВИТЬ ПИЦЦУ"
             android:textColor="#000000"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -130,24 +130,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
-
-        <!-- Кнопка экспорта в Excel -->
-        <LinearLayout
-            android:id="@+id/exportExcelButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/button_background"
-            android:gravity="center"
-            android:layout_marginBottom="30dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ЭКСПОРТ В EXCEL"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
         </LinearLayout>
 

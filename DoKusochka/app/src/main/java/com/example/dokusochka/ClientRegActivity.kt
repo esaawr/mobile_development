@@ -19,11 +19,13 @@ class ClientRegActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var registerButton: RelativeLayout
     private lateinit var loginText: TextView
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.client_reg_screen)
 
+        sessionManager = SessionManager(this)
         initViews()
         setupClickListeners()
     }
@@ -40,17 +42,17 @@ class ClientRegActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        // Кнопка назад
+        // кнопка назад
         backButton.setOnClickListener {
             finish()
         }
 
-        // Кнопка регистрации
+        // кнопка регистрации
         registerButton.setOnClickListener {
             attemptRegistration()
         }
 
-        // Текст входа
+        // текст входа
         loginText.setOnClickListener {
             val intent = Intent(this, ClientAuthActivity::class.java)
             startActivity(intent)
@@ -65,7 +67,6 @@ class ClientRegActivity : AppCompatActivity() {
         val login = loginEditText.text.toString().trim()
         val password = passwordEditText.text.toString().trim()
 
-        // Валидация
         if (name.isEmpty()) {
             showToast("Введите имя")
             return
@@ -91,13 +92,63 @@ class ClientRegActivity : AppCompatActivity() {
             return
         }
 
-        // Здесь будет сохранение в базу данных
-        showToast("Регистрация успешна!")
+        val databaseHelper = DatabaseHelper(this)
 
-        // Автоматический вход после регистрации
-        val intent = Intent(this, MenuActivity::class.java)
-        startActivity(intent)
-        finish()
+        // проверяю, не существует ли уже пользователь с таким логином
+        if (databaseHelper.checkUserExists(login)) {
+            showToast("Пользователь с таким логином уже существует")
+            return
+        }
+
+        // регистрирую нового пользователя
+        val success = databaseHelper.addUser(login, password, name, phone, address)
+
+        if (success) {
+            // Получаем ID нового пользователя
+            val userId = getNewUserId(databaseHelper, login)
+
+            // Автоматически авторизуем пользователя после регистрации
+            sessionManager.saveUserSession(
+                userId = userId,
+                userName = name,
+                userPhone = phone,
+                userLogin = login,
+                userPassword = password,
+                userCity = "",
+                userAddress = address,
+                isAdmin = false
+            )
+
+            showToast("Регистрация успешна! Вы авторизованы.")
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            showToast("Ошибка регистрации")
+        }
+    }
+
+    private fun getNewUserId(databaseHelper: DatabaseHelper, login: String): Int {
+        // Получаем ID нового пользователя
+        val db = databaseHelper.readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT id FROM users WHERE login = ?",
+            arrayOf(login)
+        )
+
+        return try {
+            if (cursor.moveToFirst()) {
+                cursor.getInt(cursor.getColumnIndexOrThrow("id"))
+            } else {
+                0
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            0
+        } finally {
+            cursor.close()
+            db.close()
+        }
     }
 
     private fun showToast(message: String) {

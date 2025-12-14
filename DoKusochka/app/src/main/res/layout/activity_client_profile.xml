@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Заголовок с кнопкой назад -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:src="@drawable/back_icon"
+                android:rotation="180"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="МОЙ ПРОФИЛЬ"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#353368"
+                android:fontFamily="@font/jost_bold" />
+
+        </RelativeLayout>
+
+        <!-- Карточка с информацией о профиле -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_white"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="4dp">
+
+            <!-- Имя -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Имя"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/jost_regular" />
+
+            <TextView
+                android:id="@+id/userNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#353368"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/jost_bold" />
+
+            <!-- Телефон -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Телефон"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/jost_regular" />
+
+            <TextView
+                android:id="@+id/userPhoneText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#353368"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/jost_bold" />
+
+            <!-- Логин -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Логин"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/jost_regular" />
+
+            <TextView
+                android:id="@+id/userLoginText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#353368"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/jost_bold" />
+
+            <!-- Пароль с кнопкой изменения -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Пароль"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:fontFamily="@font/jost_regular" />
+
+                <Button
+                    android:id="@+id/changePasswordButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="ИЗМЕНИТЬ"
+                    android:textColor="#353368"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:fontFamily="@font/jost_bold" />
+
+            </RelativeLayout>
+
+            <!-- Пароль с иконкой видимости -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/passwordToggle"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@android:drawable/ic_menu_view"
+                    app:tint="#353368"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/passwordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="••••••••"
+                    android:textSize="16sp"
+                    android:textColor="#353368"
+                    android:layout_toEndOf="@id/passwordToggle"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/jost_bold" />
+
+            </RelativeLayout>
+
+            <!-- Адрес с кнопкой изменения -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Адрес"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:fontFamily="@font/jost_regular" />
+
+                <Button
+                    android:id="@+id/changeCityButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="ИЗМЕНИТЬ"
+                    android:textColor="#353368"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@android:color/transparent"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:fontFamily="@font/jost_bold" />
+
+            </RelativeLayout>
+
+            <!-- Адрес -->
+            <TextView
+                android:id="@+id/cityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#353368"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/jost_bold" />
+
+        </LinearLayout>
+
+        <!-- Кнопка выхода -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/dark_button_background"
+            android:text="ВЫЙТИ"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/jost_bold" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- РАЗРЕШЕНИЯ ДОЛЖНЫ БЫТЬ ЗДЕСЬ - на уровне корневого элемента <manifest> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Для Android 10+ (API 29+) -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -24,31 +31,42 @@
             </intent-filter>
         </activity>
 
-        <!-- Выбор роли -->
-        <activity
-            android:name=".RoleSelectionActivity"
-            android:label="Выбор роли"
-            android:theme="@style/Theme.DoKusochka" />
-
-        <!-- Меню для клиента -->
+        <!-- Меню для клиента (Пиццы) -->
         <activity
             android:name=".MenuActivity"
             android:label="Меню"
             android:theme="@style/Theme.DoKusochka" />
 
-        <!-- Авторизация клиента -->
+        <!-- Меню напитков -->
+        <activity
+            android:name=".MenuDrinksActivity"
+            android:label="Напитки"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Меню закусок -->
+        <activity
+            android:name=".MenuSnacksActivity"
+            android:label="Закуски"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Авторизация (единая для пользователей и администраторов) -->
         <activity
             android:name=".ClientAuthActivity"
-            android:label="Вход для клиента"
+            android:label="Авторизация"
             android:theme="@style/Theme.DoKusochka" />
-        <activity android:name=".ClientRegActivity"
-            android:label="Регистрация для клиента"
-            android:theme="@style/Theme.DoKusochka" />
-        <!-- Авторизация администратора -->
+
+        <!-- Регистрация клиента -->
         <activity
-            android:name=".AdminAuthActivity"
-            android:label="Вход для администратора"
+            android:name=".ClientRegActivity"
+            android:label="Регистрация"
             android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Профиль клиента -->
+        <activity
+            android:name=".ClientProfileActivity"
+            android:label="Мой профиль"
+            android:theme="@style/Theme.DoKusochka" />
+
 
         <!-- Панель управления администратора -->
         <activity
@@ -56,11 +74,46 @@
             android:label="Панель администратора"
             android:theme="@style/Theme.DoKusochka" />
 
+        <!-- Управление меню (админ) -->
         <activity
             android:name=".MenuManagementActivity"
-            android:exported="false" />
+            android:label="Управление меню"
+            android:theme="@style/Theme.DoKusochka" />
 
-        <activity android:name=".CartActivity" />
+        <!-- Корзина -->
+        <activity
+            android:name=".CartActivity"
+            android:label="Корзина"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Управление заказами (админ) -->
+        <activity
+            android:name=".OrdersActivity"
+            android:label="Управление заказами"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- Активность удаления пиццы -->
+        <activity
+            android:name=".DeletePizzaActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Активность экспорта данных -->
+        <activity
+            android:name=".ExportActivity"
+            android:label="Экспорт данных"
+            android:theme="@style/Theme.DoKusochka" />
+
+        <!-- ⭐⭐⭐ ДОБАВЬТЕ ЭТОТ ПРОВАЙДЕР ДЛЯ РАБОТЫ С ФАЙЛАМИ ⭐⭐⭐ -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <!-- ⭐⭐⭐ КОНЕЦ ДОБАВЛЕНИЯ ⭐⭐⭐ -->
 
     </application>
 

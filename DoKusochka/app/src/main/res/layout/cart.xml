@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="80dp"
-        android:background="@drawable/rounded_orange_light"
+        android:background="@drawable/rounded_orange_lightt"
         android:padding="16dp">
 
         <!-- Сообщение о пустой корзине -->
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/rounded_orange_medium"
+            android:background="@drawable/rounded_orange_mediumm"
             android:padding="20dp"
             android:visibility="gone">
 

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFE0"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="УДАЛИТЬ ПИЦЦУ"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <!-- Выбор пиццы для удаления -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Выберите пиццу для удаления:"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Spinner для выбора пиццы -->
+        <Spinner
+            android:id="@+id/pizzaSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Или введите название -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Или введите название пиццы:"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:id="@+id/pizzaNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            android:padding="10dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Введите название пиццы"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Кнопка удаления пиццы -->
+        <LinearLayout
+            android:id="@+id/deletePizzaButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="УДАЛИТЬ ПИЦЦУ"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Отображение информации о пицце -->
+        <TextView
+            android:id="@+id/pizzaInfoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+        <!-- Кнопка назад -->
+        <LinearLayout
+            android:id="@+id/backButton"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/dark_button_background"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="НАЗАД"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

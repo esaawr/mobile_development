@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="30dp">
+
+    <ImageView
+        android:id="@+id/pizzaImage"
+        android:layout_width="141dp"
+        android:layout_height="143dp"
+        android:src="@drawable/default_pizza" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@id/pizzaImage">
+
+        <TextView
+            android:id="@+id/pizzaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="НАЗВАНИЕ ПИЦЦЫ"
+            android:textColor="#363368"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pizzaDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pizzaTitle"
+            android:layout_marginTop="4dp"
+            android:lineSpacingExtra="4dp"
+            android:text="ОПИСАНИЕ ПИЦЦЫ"
+            android:textColor="#363368"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <!-- Кнопка цены или управление количеством -->
+    <RelativeLayout
+        android:id="@+id/priceContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_below="@id/pizzaImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_orange_mediumm">
+
+        <!-- Кнопка цены (изначально видна) -->
+        <TextView
+            android:id="@+id/priceButton"
+            android:layout_width="101dp"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="0 Р"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <!-- Управление количеством (изначально скрыто) -->
+        <LinearLayout
+            android:id="@+id/quantityControls"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <!-- Кнопка минус -->
+            <TextView
+                android:id="@+id/minusButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <!-- Количество -->
+            <TextView
+                android:id="@+id/quantityText"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Кнопка плюс -->
+            <TextView
+                android:id="@+id/plusButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
